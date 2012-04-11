@@ -1,0 +1,290 @@
+/*=================================*/
+/* Nivo Slider Demo
+/* November 2010
+/* By: Gilbert Pellegrom
+/* http://dev7studios.com
+/*=================================*/
+
+/*====================*/
+/*=== Reset Styles ===*/
+/*====================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:13px;
+	font-family:inherit;
+	vertical-align:baseline;
+}
+body {
+	line-height:1;
+	color:black;
+	background:white;
+}
+table {
+	border-collapse:separate;
+	border-spacing:0;
+}
+caption, th, td {
+	text-align:left;
+	font-weight:normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content:"";
+}
+blockquote, q {
+	quotes:"" "";
+}
+/* HTML5 tags */
+header, section, footer,
+aside, nav, article, figure {
+	display: block;
+}
+
+/*===================*/
+/*=== Main Styles ===*/
+/*===================*/
+body {
+	font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+	color:#ffffff;
+	//background-color: #dedede;
+	background-image: url(b2.jpg);
+}
+
+a, a:visited {
+	font-size: 15px;
+	color:#000000;
+	text-decoration:none;
+}
+a:hover, a:active {
+
+	color:#000;
+	text-decoration:none;
+}
+
+#dev7link {
+    position:absolute;
+    top:0;
+    left:50px;
+    background:url(images/dev7logo.png) no-repeat;
+    width:60px;
+    height:67px;
+    border:0;
+    display:block;
+    text-indent:-9999px;
+}
+
+.theme-default #slider {
+    margin:80px auto 0 auto;
+    width:950px; /* Make sure your images are the same size */
+    height:425px; /* Make sure your images are the same size */
+}
+.theme-pascal.slider-wrapper,
+.theme-orman.slider-wrapper {
+    margin-top:150px;
+}
+
+/*============================*/
+/*=== Custom Slider Styles ===*/
+/*============================*/
+#slider-wrapper {
+    //background:url(C:\Documents and Settings\compaq\Desktop\SEn PROJECT\Prototype 1\images\slider.png) no-repeat; /* Slider border and shadows */
+	//background-image:url(C:\Documents and Settings\compaq\Desktop\SEn PROJECT\Prototype 1\images\bckgrnd3.gif) repeat;
+    
+	overflow: hidden;
+	width:800px;
+    height:400px;
+	margin-left: 10px;
+    padding-top: 0px; /* Push the actual slider into the centre */
+	padding-left: 5px;
+    
+    position:relative;
+}
+
+#slider {
+    position:relative;
+	border:8px solid #fff;
+    width:700px;
+    height:100px;
+	overflow: hidden;
+    margin-left: 65px; /* Push the actual slider into the centre */
+	margin-top: -3px;
+    background:url(images\loading.gif) no-repeat 50% 50%;
+}
+#slider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+    width:800px;
+    height:300px;
+}
+#slider a {
+    border:0;
+    display:block;
+}
+
+.nivo-controlNav {
+    background:url(images\controlnav.png) no-repeat; /* Background for the bullets */
+    width:314px;
+    height:50px;
+    position:absolute;
+    left:250px; /* Manually position in centre. Not perfect :( */
+    bottom:0px;
+    padding:8px 0 0 82px;
+    z-index:20; /* Make sure it is visible above the slides */
+}
+.nivo-controlNav a {
+    display:block;
+    width:22px;
+    height:22px;
+    background:url(images\bullets.png) no-repeat;
+    text-indent:-9999px;
+    border:0;
+    margin-right:3px;
+    float:left;
+}
+.nivo-controlNav a.active {
+    background-position:0 -22px; /* Selected bullet */
+}
+
+.nivo-caption {
+    bottom:40%; /* Vertically centre the captions */
+    left:auto;
+    right:0px; /* Put them on the right */
+    width:auto;
+    max-width:630px;
+    overflow:hidden;
+    background:#fff;
+    text-shadow:none;
+    font-family: 'Anton', arial, serif; /* Using a Google Font (not required) */
+    color:#4c4b4b;
+}
+.nivo-caption p {
+    padding:5px 15px;
+}
+.nivo-caption a { 
+    color:#333;
+    font-weight:bold;
+    font-size:27px;
+    text-transform:uppercase;
+}
+
+#featured {
+    background:url(images\featured.png) no-repeat;
+    width:115px;
+    height:110px;
+    position:absolute;
+    top:-8px; /* Bump up a bit to give the fold effect */
+    left:-8px; /* Bump left a bit to give the fold effect */
+    z-index:20; /* Make sure it is visible above the slides */
+}
+.nivoSlider {
+	position:absolute;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+}
+/*====================*/
+/*=== Other Styles ===*/
+/*====================*/
+.clear {
+	clear:both;
+}
+.navbar1{
+  position: relative;
+  height:0px;
+  width: 250px;
+  margin-left: 1050px;
+  margin-right: 0px;
+  margin-top: 50px;
+  padding-left: 10px,10px,10px,10px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}  
+.loginbox{
+background:#dddddd;
+position: absolute;
+left: 910px;
+height: 280px;
+border:2px solid #a1a1a1;
+padding:10px 40px; 
+opacity: 0.5;
+width:250px;
+border-radius:25px;
+-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+}
+
+
+
+
+
+.logincss{
+position: absolute;
+left: 910px;
+border:2px solid #a1a1a1;
+padding:10px 40px; 
+height: 280px;
+width:250px;
+border-radius:25px;
+-moz-border-radius:25px; /* Firefox 3.6 and earlier */
+}
+
+
+.navbar1> p{
+  float: none;
+  padding: 10px,50px,10px,50px;
+  color: #225588;
+  text-decoration: none;
+  font-family: Helvetica;
+  font-size:19px;
+//  font: 14px/1.6 Palatino Linotype;
+  
+  }
+.navbar1> h2{
+  float: none;
+  padding: 10px,10px,10px,10px;
+  color: #d7d7d7;
+  text-decoration: none;
+  font: 14px/1.6 Palatino Linotype;
+  
+  }
